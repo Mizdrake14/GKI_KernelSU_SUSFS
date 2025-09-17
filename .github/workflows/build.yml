@@ -120,7 +120,7 @@ jobs:
           git fetch https://github.com/mizdrake7/WILDFlower-android13-5.15-common-GKI android13-5.15
 
           # Cherry-pick the specified range of commits
-          git cherry-pick c3056a53d819951d929347a02a6c9bfb1febe0ea^..2c7af6eeb64199710ea48cc6b7d78084c1f79766
+          git cherry-pick c3056a53d819951d929347a02a6c9bfb1febe0ea^..b65beca6344df62eb220d0e28ed5c1a4bc5f29ba
 
       - name: Extract Actual Sublevel for LTS Builds
         if: inputs.sub_level == 'X'
