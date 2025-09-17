@@ -117,10 +117,10 @@ jobs:
           git config --global user.email "mizdrake14@gmail.com"
 
           # Fetch the specific branch from the remote repository
-          git fetch https://github.com/mizdrake7/WILDFlower-android13-5.15-common-GKI android13-5.15
+          git fetch https://github.com/mizdrake7/WILDFlower-android13-5.15-common-GKI main
 
           # Cherry-pick the specified range of commits
-          git cherry-pick c3056a53d819951d929347a02a6c9bfb1febe0ea^..b5fe671935845131c170116b18e4349bc3a86f6f
+          git cherry-pick d220c4cd8b0e4be6c5bd7f0bff11db100607191c
 
       - name: Extract Actual Sublevel for LTS Builds
         if: inputs.sub_level == 'X'
