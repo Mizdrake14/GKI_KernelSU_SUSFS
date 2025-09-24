@@ -120,7 +120,7 @@ jobs:
           git fetch https://github.com/mizdrake7/WILDFlower-android13-5.15-common-GKI main
 
           # Cherry-pick the specified range of commits
-          git cherry-pick d220c4cd8b0e4be6c5bd7f0bff11db100607191c^..141820b5a44ca1373646dabc3f2274838a43601d
+          git cherry-pick d220c4cd8b0e4be6c5bd7f0bff11db100607191c^..a0b85696a172aba0f9f3334aa34a659affa3992d
 
       - name: Extract Actual Sublevel for LTS Builds
         if: inputs.sub_level == 'X'
@@ -577,4 +577,3 @@ jobs:
           name: WKSU-${{ env.KSUVER }}-${{ inputs.android_version }}-${{ inputs.kernel_version }}.${{ env.ACTUAL_SUBLEVEL || inputs.sub_level }}-${{ inputs.os_patch_level }}-${{ matrix.build_type }}
           path: |
             *.zip
-            *.img
