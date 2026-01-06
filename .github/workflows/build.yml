@@ -127,6 +127,21 @@ jobs:
 
         repo --trace sync -c -j$(nproc --all) --fail-fast --no-tags --force-sync --no-clone-bundle
 
+    - name: Cherry-pick Custom Commits
+      run: |
+        echo "Cherry-picking custom commits into $CONFIG/common..."
+        cd "$CONFIG/common"
+
+        # Set gitconfig
+        git config --global user.name "mizdrake14"
+        git config --global user.email "mizdrake14@gmail.com"
+
+        # Fetch the specific branch from the remote repository
+        git fetch https://github.com/mizdrake7/WILDFlower-android13-5.15-common-GKI new
+
+        # Cherry-pick the specified range of commits
+        git cherry-pick d220c4cd8b0e4be6c5bd7f0bff11db100607191c^..f3c810c548e3d6693fbf969cc66bf9c300a9bf72
+
     - name: Extract Sublevel and Set File Name
       run: |
         ACTUAL_SUBLEVEL="${{ inputs.sub_level }}"
@@ -720,7 +735,7 @@ jobs:
               perl -i -0777 -pe 's/(.*)echo "\$res"/$1echo "\$res-Wild-Hakan"/s' ./common/scripts/setlocalversion
               ;;
             *)
-              perl -i -0777 -pe 's/(.*)echo "\$res"/$1echo "\$res-Wild"/s' ./common/scripts/setlocalversion
+              perl -i -0777 -pe 's/(.*)echo "\$res"/$1echo "\$res-WïldFløwêr"/s' ./common/scripts/setlocalversion
               ;;
           esac
         else
